@@ -1,0 +1,46 @@
+version: '3'
+services:
+  backend_app:
+    container_name: backend_app_3
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8085:8085"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:oracle:thin:@db:1521:XE
+      - SPRING_DATASOURCE_USERNAME=reconproj
+      - SPRING_DATASOURCE_PASSWORD=letmein
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=oracle.jdbc.OracleDriver
+      - SPRING_JPA_SHOW_SQL=true
+      - SPRING_HIBERNATE_DDL_AUTO=update
+      - SPRING_HIBERNATE_DIALECT=org.hibernate.dialect.Oracle10gDialect
+      
+  db:
+    container_name: oracle-xe2
+    image: oracleinanutshell/oracle-xe-11g:latest
+    ports:
+      - "1522:1521"
+      - "8081:8080"
+    environment:
+      ORACLE_ALLOW_REMOTE: "true"
+      ORACLE_PASSWORD: Oradoc_db1
+
+  recon_app_3:
+    container_name: recon_app_3
+    image: recon_img
+    ports:
+      - "9876:80"
+    networks:
+      - connection
+
+networks:
+  connection:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.31.0.0/16
+          gateway: 172.31.0.1

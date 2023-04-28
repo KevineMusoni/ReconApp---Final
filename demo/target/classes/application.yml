@@ -1,0 +1,39 @@
+#
+#spring:
+#  datasource:
+#    password: Imanzi.2001.
+#    url: jdbc:mysql://localhost:3306/recorddb
+#    username: root
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL8Dialect
+#        format_sql: true
+#    show-sql: true
+
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521/xe
+    username: reconproj
+    password: letmein
+    driver-class-name: oracle.jdbc.OracleDriver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.Oracle10gDialect
+  cache:
+    type: none
+
+server:
+  port: 8085
+  jetty:
+    max-http-form-post-size: 65536
+
+logging:
+  level:
+    sql: debug
+

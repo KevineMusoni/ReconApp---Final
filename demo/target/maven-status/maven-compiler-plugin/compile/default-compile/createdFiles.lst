@@ -1,0 +1,15 @@
+com\example\demo\DemoApplication.class
+com\example\demo\enumeration\Status.class
+com\example\demo\resource\SummaryResource.class
+com\example\demo\service\implementation\SummaryServiceImpl.class
+com\example\demo\service\ItemService.class
+com\example\demo\service\SummaryService.class
+com\example\demo\service\implementation\ItemServiceImpl.class
+com\example\demo\model\Response$ResponseBuilderImpl.class
+com\example\demo\model\Response.class
+com\example\demo\model\Items.class
+com\example\demo\repo\ItemRepo.class
+com\example\demo\repo\SummaryRepo.class
+com\example\demo\resource\ItemResource.class
+com\example\demo\model\BaseSummary.class
+com\example\demo\model\Response$ResponseBuilder.class
